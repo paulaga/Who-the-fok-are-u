@@ -1,5 +1,11 @@
 $(function() {
-  
+
+  // PLAY
+  $(".play").on("click", function (){
+    $(this).fadeOut();
+    $(".container").show();
+    /* ¿Meter función de start aquí? */
+  });
 
   /* Pintar board */
   var boardGame = new Board();
@@ -13,14 +19,15 @@ $(function() {
   // Generate HTML
   var html = "";
   boardGame.cards.forEach(function(pic, index) {
-    html += '<div class= "card" id="card_' + pic.name + '">';
-    html += '<div class="back" name="' + pic.color + '"></div>';
+    html += '<div class= "card" id="' + pic.name + '">';
+    html += '<div class="back" name="' + pic.img + '"';
+    html += 'style="background: url(img/' + pic.img + ') no-repeat"></div>';
     html += "</div>";
   });
   document.getElementById("player_board").innerHTML = html;
 
   /* 1. Boton para elegir personaje */
-  $("#btn_chose").on("click", function() {
+  $(".modal").on("click", function() {
     $(this).hide();
     /* Al confirmar se oculta */
   });

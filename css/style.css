@@ -1,5 +1,25 @@
 body{
+  margin: 0;
+  padding: 0;
   background: pink;
+}
+
+.play{
+  width: 100%;
+  padding-top: 100px;
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.container{
+  display: flex; 
+  justify-content: center;
+}
+
+#player_board {
+  max-width: 800px;
 }
 .card{
   width: 100px;
@@ -7,4 +27,14 @@ body{
   border: 2px solid blue;
   margin: 10px;
   float: left;
+}
+.back {
+  width: 100px;
+  height: 100px; 
+}
+
+.selected_card {
+  background: gray;
+  width: 100px;
+  height: 100px;
 }
