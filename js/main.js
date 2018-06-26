@@ -41,7 +41,7 @@ $(function() {
     /**/$(this).css({"color" : "red"});
     console.log($(this).text());
     var pickedQ = $(this).text();
-    boardGame.selectQuestion(pickedQ);
+    boardGame.selectQuestion(pickedQ, Player1); 
   });
   
 });
