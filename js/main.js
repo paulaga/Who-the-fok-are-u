@@ -1,30 +1,18 @@
 $(function() {
 
+  
+  $(".container").hide();
+
   // PLAY
   $(".play").on("click", function (){
-    $(this).fadeOut();
+    $(this).hide();
     $(".container").show();
-    /* ¿Meter función de start aquí? */
   });
 
-  /* Pintar board */
   var boardGame = new Board();
-
+  boardGame.create();
   var Player1 = new Player(boardGame);
-  var Player2 = new Player();
-
-  // Shuffle cards
-  boardGame.shuffleCards(); 
-
-  // Generate HTML
-  var html = "";
-  boardGame.cards.forEach(function(pic, index) {
-    html += '<div class= "card" id="' + pic.name + '">';
-    html += '<div class="back" name="' + pic.img + '"';
-    html += 'style="background: url(img/' + pic.img + ') no-repeat"></div>';
-    html += "</div>";
-  });
-  document.getElementById("player_board").innerHTML = html;
+  //var Player2 = new Player();
 
   /* 1. Boton para elegir personaje */
   $(".modal").on("click", function() {
@@ -35,17 +23,15 @@ $(function() {
   /* 2. Turno 1 - Eligiendo personaje */
   $(".card").on("click", function() {
     var character = $(this).attr("id");
-    console.log(character)
-    Player1.characterSelected = Player1.selectCard(character, boardGame.cards);
+    console.log(character);
+    Player1.selectCard(character, boardGame.cards);
 
-    /* Deshabilitar cards */ $(this).disabled = true;
+    //var cards = document.getElementsByClassName("card");
+    //for (var i = 0; i < cards.length; i++) {
+    //  cards[i].disabled = true;
+    //}
     /* draw selected card on player card */
     /* call question turn */
   });
-
-  // Turnos
-  //Game.prototype.start = function () {
-  //  memoryGame.shuffleCard(cards);
-  //
-  //};
+  
 });

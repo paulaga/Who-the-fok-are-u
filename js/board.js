@@ -1,39 +1,37 @@
 var cards = [
   { name: "uno",        img:  "gafas.jpg",   answer: [0, 2]},
   { name: "dos",        img:  "sombrero.jpg",   answer: [1]},
-  { name: "tres",       img:  "blue",   answer: [2]},
-  { name: "cuatro",     img:  "pink",   answer: [0,1]},
-  { name: "cinco",      img:  "blue",   answer: [0, 1, 2]},
-  { name: "seis",       img:  "red",   answer: [0, 2]},
-  { name: "siete",      img:  "green",   answer: [1]},
-  { name: "ocho",       img:  "blue",   answer: [2]},
-  { name: "nueve",      img:  "pink",   answer: [0,1]},
-  { name: "diez",       img:  "blue",   answer: [0, 1, 2]},
-  { name: "once",       img:  "red",   answer: [0, 2]},
-  { name: "doce",       img:  "green",   answer: [1]},
-  { name: "trece",      img:  "blue",   answer: [2]},
-  { name: "catorce",    img:  "pink",   answer: [0,1]},
-  { name: "quince",     img:  "blue",   answer: [0, 1, 2]},
-  { name: "dieciseis",  img:  "red",   answer: [0, 2]},
-  { name: "diecisite",  img:  "green",   answer: [1]},
-  { name: "dieciocho",  img:  "blue",   answer: [2]},
-  { name: "diecinueve", img:  "pink",   answer: [0,1]},
-  { name: "veinte",     img:  "blue",   answer: [0, 1, 2]},
-  { name: "veintiuno",  img:  "red",   answer: [0, 2]},
-  { name: "veintidos",  img:  "green",   answer: [1]},
-  { name: "veintitres", img:  "blue",   answer: [2]},
-  { name: "veinticuatro",img:  "pink",   answer: [0,1]},
+  { name: "tres",       img:  "",   answer: [2]},
+  { name: "cuatro",     img:  "",   answer: [0,1]},
+  { name: "cinco",      img:  "",   answer: [0, 1, 2]},
+  { name: "seis",       img:  "",   answer: [0, 2]},
+  { name: "siete",      img:  "",   answer: [1]},
+  { name: "ocho",       img:  "",   answer: [2]},
+  { name: "nueve",      img:  "",   answer: [0,1]},
+  { name: "diez",       img:  "",   answer: [0, 1, 2]},
+  { name: "once",       img:  "",   answer: [0, 2]},
+  { name: "doce",       img:  "",   answer: [1]},
+  { name: "trece",      img:  "",   answer: [2]},
+  { name: "catorce",    img:  "",   answer: [0,1]},
+  { name: "quince",     img:  "",   answer: [0, 1, 2]},
+  { name: "dieciseis",  img:  "",   answer: [0, 2]},
+  { name: "diecisite",  img:  "",   answer: [1]},
+  { name: "dieciocho",  img:  "",   answer: [2]},
+  { name: "diecinueve", img:  "",   answer: [0,1]},
+  { name: "veinte",     img:  "",   answer: [0, 1, 2]},
+  { name: "veintiuno",  img:  "",   answer: [0, 2]},
+  { name: "veintidos",  img:  "",   answer: [1]},
+  { name: "veintitres", img:  "",   answer: [2]},
+  { name: "veinticuatro",img:  "",   answer: [0,1]},
 ];
 
 function Board () {
   this.cards = cards;
   this.questions = [  "Tiene gafas?",
                       "Lleva sombrero?",
-                      "Tiene barba?"]
+                      "Tiene barba?",
+                    ]
 }
-
-$(function(){
-
 
 // Barajar
 Board.prototype.shuffleCards = function () {
@@ -52,15 +50,28 @@ Board.prototype.shuffleCards = function () {
   return copy;
 }
 
+Board.prototype.create = function() {
+    // Shuffle cards
+    this.shuffleCards(); 
 
+    // Generate cards HTML
+    var html = "";
+    this.cards.forEach(function(pic, index) {
+      html += '<div class= "card" id="' + pic.name + '">';
+      html += '<div class="back" name="' + pic.img + '"';
+      html += 'style="background: url(img/' + pic.img + ') no-repeat"></div>';
+      html += "</div>";
+    });
+    document.getElementById("player_board").innerHTML = html;
 
-// Personaje elegido
-Board.prototype.selectCharacter = function (card) {
-  /* Al clickar una carta reportar la card clicked al player 1 */
-  
-  /* Asignar una carta seleccionada random al player2 - 
-  ¿Esto podría ser otra función a la que se llame aquí?*/
-  return this.characterSelected = "";
+    // Generate questions
+    this.questions.forEach(function(pic, index) {
+    });
+}
+
+Board.prototype.setSelectedCard = function (selected) {
+  var url = 'url("../img/' + selected.img + '")';
+  $(".selected_card").css({"background" : url});
 }
 
 // Pregunta elegida
@@ -92,6 +103,3 @@ Board.prototype.finished = function () {
     return false;
   }
 }
-
-
-});

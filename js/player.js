@@ -1,36 +1,24 @@
-function Player (selected) {
-  this.characterSelected = selected;
+function Player () {
+  this.characterSelected;
+  this.characterComputer;
   this.isNotArray = [];
 }
 
 Player.prototype.selectCard = function (character, cards) {
-  var selected;
-  /* Sobre la carta que clicke Reportar la card clicked al player y guardarla como elegida */
-  console.log(cards)
+  this.characterComputer = cards[Math.floor (Math.random() * cards.length)];
   for (var i = 0; i < cards.length; i++) {
-    console.log (cards[i])
     if (cards[i].name == character) {
-      selected = cards[i];
-      console.log("yes")
-      console.log(cards[i])
-      console.log(selected)
-
-     return selected;
+      this.characterSelected = cards[i];
+      console.log(this.characterComputer);
+      console.log (this.characterSelected);
+      // Draw card on board
+      var url = 'url("img/' + cards[i].img + '")';
+      $(".selected_card").css({background : url});
     }
+
   }
-
-  Player2.characterSelected = cards[Math.floor (Math.random() * cards.length)];
 };
-
-Player.prototype.setSelectedCard = function (selected) {
-  $(".selected_card").css({"background" : "url(../img/)"})
-}
-
 
 Player.prototype.selectQuestion = function () {
 
 }
-
-
-
-
