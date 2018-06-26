@@ -6,6 +6,8 @@ function Player () {
 
 Player.prototype.selectCard = function (character, cards) {
   this.characterComputer = cards[Math.floor (Math.random() * cards.length)];
+  var pcUrl = 'url("img/who.jpg")';
+  $(".pc_selected_card").css({background : pcUrl});
   for (var i = 0; i < cards.length; i++) {
     if (cards[i].name == character) {
       this.characterSelected = cards[i];
@@ -20,5 +22,4 @@ Player.prototype.selectCard = function (character, cards) {
 };
 
 Player.prototype.selectQuestion = function () {
-
 }

@@ -1,12 +1,14 @@
 $(function() {
 
-  
+
   $(".container").hide();
+  $(".modal").hide();
 
   // PLAY
   $(".play").on("click", function (){
     $(this).hide();
     $(".container").show();
+    $(".modal").show();
   });
 
   var boardGame = new Board();
@@ -32,6 +34,14 @@ $(function() {
     //}
     /* draw selected card on player card */
     /* call question turn */
+  });
+
+  // 3. Seleccionar pregunta
+  $(".question").on("click", function () {
+    /**/$(this).css({"color" : "red"});
+    console.log($(this).text());
+    var pickedQ = $(this).text();
+    boardGame.selectQuestion(pickedQ);
   });
   
 });

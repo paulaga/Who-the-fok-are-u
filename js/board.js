@@ -31,6 +31,7 @@ function Board () {
                       "Lleva sombrero?",
                       "Tiene barba?",
                     ]
+  this.pickedquestIndex;
 }
 
 // Barajar
@@ -55,31 +56,51 @@ Board.prototype.create = function() {
     this.shuffleCards(); 
 
     // Generate cards HTML
-    var html = "";
+    var boardHtml = "";
     this.cards.forEach(function(pic, index) {
-      html += '<div class= "card" id="' + pic.name + '">';
-      html += '<div class="back" name="' + pic.img + '"';
-      html += 'style="background: url(img/' + pic.img + ') no-repeat"></div>';
-      html += "</div>";
+      boardHtml += '<div class= "card" id="' + pic.name + '">';
+      boardHtml += '<div class="back" name="' + pic.img + '"';
+      boardHtml += 'style="background: url(img/' + pic.img + ') no-repeat"></div>';
+      boardHtml += "</div>";
     });
-    document.getElementById("player_board").innerHTML = html;
+    document.getElementById("player_board").innerHTML = boardHtml;
 
     // Generate questions
-    this.questions.forEach(function(pic, index) {
+    var questHtml = "";
+    this.questions.forEach(function(e) {
+      questHtml += '<div class="carousel-item">';
+      questHtml += '<p class="question">' + e + '</p>'
+      questHtml += '</div>'
     });
+    $(".carousel-inner").append(questHtml);
+    $(".carousel-item:first").addClass("active");
+
 }
 
-Board.prototype.setSelectedCard = function (selected) {
+/*Board.prototype.setSelectedCard = function (selected) {
   var url = 'url("../img/' + selected.img + '")';
   $(".selected_card").css({"background" : url});
-}
+}*/
 
 // Pregunta elegida
-Board.prototype.selectQuestion = function () {
-  /* 1. Comparar si el nº índice de la pregunta está en el answer array de characterSelected */
-  /* 2a. Si SI está: Devolver las cartas en las que NO está */
-  /* 2b. Si NO está: Devolver las cartas en las que SI está */
-  /* 3. Pintar esas cartas a un array whoIsNot */
+Board.prototype.selectQuestion = function (e) {
+  
+  // 1. Buscar el nº de pregunta en el array questions
+  for (var i = 0; i < this.questions.length; i++) {
+    if (this.questions[i] == e) {
+      this.pickedquestIndex = i;
+      console.log(this.pickedquestIndex);
+    }  
+  }
+
+  // 2. Comparar si el nº índice de la pregunta está en el answer array de characterSelected
+  Player1.characterSelector.forEach(function(e) {
+    console.log(e.array);
+  });
+
+  /* 3a. Si SI está: Devolver las cartas en las que NO está */
+  /* 3b. Si NO está: Devolver las cartas en las que SI está */
+  /* 4. Pintar esas cartas a un array whoIsNot */
   
   //for (var i = 0; i <= largo del array del answer card; i++){
   //  if (questions[nº del indice] == ) {
