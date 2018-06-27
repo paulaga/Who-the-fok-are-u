@@ -4,6 +4,9 @@ body{
   background: pink;
 }
 
+/* spans */
+.pointer{cursor: pointer;}
+
 .play{
   width: 100%;
   padding-top: 100px;
@@ -13,7 +16,7 @@ body{
   text-align: center;
 }
 
-.modal{
+#modal_chose{
   z-index: 2;
   min-width: 300px;
   min-height: 200px;
@@ -31,23 +34,25 @@ body{
   min-width: 720px;
 }
 
-.card{
+.person{
   width: 100px;
   height: 100px;
-  border: 2px solid blue;
   margin: 5px;
   float: left;
   background: none;
 }
+
 .back, .front {
   height: 100px; 
 }
 
 .back {
-  background: rgba(215, 30, 44, 0.4);
+  position: relative;
+  top: -100px;
+  background: rgba(24, 33, 117, .7);
 }
 
-.card-opacity{
+.person-opacity{
   opacity: .6;
 }
 
@@ -68,7 +73,7 @@ body{
   margin: 20px 0;
 }
 
-#pc_board .card{
+#pc_board .person{
   max-width: 35px;
   max-height: 35px;
   margin: 0;
