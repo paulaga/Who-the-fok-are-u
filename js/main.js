@@ -17,12 +17,11 @@ $(function() {
   var Player1 = new Player(boardGame, false);
   var PlayerPC = new Player(boardGame, true);
 
-  /* 1. Boton para elegir personaje */
+  // Elegir personaje
   $("#modal_chose").on("click", function() {
     $(this).hide();
   });
 
-  /* 2. Turno 1 - Eligiendo personaje */
   $(".person").on("click", function() {
     var character = $(this).attr("id");
     console.log(character);
@@ -32,14 +31,16 @@ $(function() {
     }
   });
 
-  // 3. Seleccionar pregunta
+  // Seleccionar pregunta
   $(".question").on("click", function () {
-    /**/$(this).css({"color" : "red"});
+    $(this).parent().remove();
+    $(".carousel-item:first").addClass("active");
     console.log($(this).text());
     var pickedQ = $(this).text();
     boardGame.selectQuestion(pickedQ, Player1); 
   });
 
+  // Responder pregunta de PC
   $("#pc_questions button").on("click", function () {
     boardGame.selectQuestion(PlayerPC.pcQuest, PlayerPC); 
     $("#pc_questions").hide();

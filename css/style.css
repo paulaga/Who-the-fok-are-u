@@ -16,12 +16,16 @@ body{
   text-align: center;
 }
 
-#modal_chose{
-  z-index: 2;
-  min-width: 300px;
-  min-height: 200px;
-  margin-top: 45vh;
+#modal_chose, #pc_questions{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  background: rgba(0,0,0,.4);
+  color: #fff;
   text-align: center;
+  padding: 45% 0;
 }
 
 .container{
@@ -32,6 +36,10 @@ body{
 #player_board {
   max-width: 800px;
   min-width: 720px;
+}
+
+.back {
+  top: -100px;
 }
 
 .person{
@@ -48,7 +56,6 @@ body{
 
 .back {
   position: relative;
-  top: -100px;
   background: rgba(24, 33, 117, .7);
 }
 
@@ -71,12 +78,18 @@ body{
 /** PC **/
 #pc_board{
   margin: 20px 0;
+  min-width: 210px;
 }
 
 #pc_board .person{
   max-width: 35px;
   max-height: 35px;
   margin: 0;
+}
+
+#pc_board .back {
+  width: 35px;
+  height: 35px;
 }
 
 #pc_questions{

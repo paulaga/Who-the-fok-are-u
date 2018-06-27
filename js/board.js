@@ -8,9 +8,7 @@ function Board () {
 
 // Barajar
 Board.prototype.shuffleCards = function () {
-
   var copy = [], n = this.cards.length, i;
-
   while (n) {
     i = Math.floor(Math.random() * this.cards.length);
     if (i in this.cards) {
@@ -48,11 +46,10 @@ Board.prototype.create = function() {
   });
   $(".carousel-inner").append(questHtml);
   $(".carousel-item:first").addClass("active");
-
 }
 
 // Ejecuta questions
-  // 1. Busca nº de pregunta en el array questions
+//1. Busca nº de pregunta en el array questions
 Board.prototype.selectQuestion = function (q, p) {
  for (var i = 0; i < this.questions.length; i++) {
    if (this.questions[i] == q) {
@@ -64,8 +61,8 @@ Board.prototype.selectQuestion = function (q, p) {
  this.pickedCheck(p, picked)
 }
 
-  // 2. Compara si el nº está en characterSelected.answer 
-  //    -- compara con el resto de cards y guarda en isNotArray
+//2. Compara si el nº está en characterSelected.answer 
+//   compara con el resto de cards y guarda en isNotArray
 Board.prototype.pickedCheck = function (player, picked) {
   if (!player.pc) {
     if (this.characterComputer.answer.includes(picked)) {
@@ -97,15 +94,11 @@ Board.prototype.pickedCheck = function (player, picked) {
       }
     } 
   }
-  
-  console.log(player.isNotArray)
-
   this.hideCards(player);
-  player.remainCards = this.compareAnswer(player.remainCards, player.isNotArray);
-  console.log(player.remainCards);
-  
+  player.remainCards = this.compareAnswer(player.remainCards, player.isNotArray);  
 }
-  // 3. Actualiza array cards en función de las que quedan 
+
+//3. Actualiza array cards en función de las que quedan 
 Board.prototype.compareAnswer = function (allCards, selectedCards) {
   return allCards.filter(function (allC) {
     return !selectedCards.find(function (selC) {
@@ -114,7 +107,7 @@ Board.prototype.compareAnswer = function (allCards, selectedCards) {
  });
 }
 
-  // Oculta img de personajes
+// Oculta img de personajes
 Board.prototype.hideCards = function (player) {
   console.log(player);
   var isNot = player.isNotArray;
@@ -128,6 +121,7 @@ Board.prototype.hideCards = function (player) {
       player.pcTurn();
     }
   } else {
+    console.log(player);
     for (var i = 0; i < isNot.length; i++) {
       $('#pc_board #' + isNot[i].name + ' .back').show();
     }

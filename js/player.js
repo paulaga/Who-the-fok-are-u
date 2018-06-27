@@ -8,13 +8,13 @@ function Player (board, pc) {
   this.pcQuest;
 }
 
+// Select card
 Player.prototype.selectCard = function (character, cards) {
-  // Player PC
+
   this.board.characterComputer = cards[Math.floor (Math.random() * cards.length)];
   var pcUrl = 'url("img/who.jpg")';
   $(".pc_selected_card").css({background : pcUrl});
   
-  // Player 1
   for (var i = 0; i < cards.length; i++) {
     if (cards[i].name == character) {
       this.board.characterSelected = cards[i];
@@ -26,6 +26,7 @@ Player.prototype.selectCard = function (character, cards) {
   }
 };
 
+// Turno PC
 Player.prototype.pcTurn = function () {
   this.pcQuest = this.remainQuest[Math.floor (Math.random() * this.remainQuest.length)];
   $("#pc_questions p").text(this.pcQuest);
