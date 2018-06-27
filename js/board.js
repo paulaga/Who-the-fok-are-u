@@ -1,9 +1,9 @@
 function Board () {
   this.cards = cards;
-  //this.remainCardsPlayer = cards.slice();
-  //this.remainCardsPc = cards.slice();
-  this.questions = questions;
+  this.characterSelected;
+  this.characterComputer;
   this.pickedquestIndex;
+  this.questions = questions;
 }
 
 // Barajar
@@ -54,21 +54,21 @@ Board.prototype.create = function() {
 // Ejecuta questions
   // 1. Busca nº de pregunta en el array questions
 Board.prototype.selectQuestion = function (q, p) {
-  for (var i = 0; i < this.questions.length; i++) {
-    if (this.questions[i] == q) {
-      this.pickedquestIndex = i;
-    }  
-  }
-  var picked = this.pickedquestIndex;
+ for (var i = 0; i < this.questions.length; i++) {
+   if (this.questions[i] == q) {
+     this.pickedquestIndex = i;
+   }  
+ }
+ var picked = this.pickedquestIndex;
 
-  this.pickedCheck(p, picked)
+ this.pickedCheck(p, picked)
 }
 
   // 2. Compara si el nº está en characterSelected.answer 
   //    -- compara con el resto de cards y guarda en isNotArray
 Board.prototype.pickedCheck = function (player, picked) {
   if (!player.pc) {
-    if (player.characterComputer.answer.includes(picked)) {
+    if (this.characterComputer.answer.includes(picked)) {
       for (var i = 0; i < player.remainCards.length; i++) {
         if (!(player.remainCards[i].answer.includes(picked))) {
           player.isNotArray.push(player.remainCards[i]);
@@ -82,7 +82,8 @@ Board.prototype.pickedCheck = function (player, picked) {
       }
     } 
   } else {
-    if (player.characterSelected.answer.includes(picked)) {
+    console.log(this.characterSelected)
+    if (this.characterSelected.answer.includes(picked)) {
       for (var i = 0; i < player.remainCards.length; i++) {
         if (!(player.remainCards[i].answer.includes(picked))) {
           player.isNotArray.push(player.remainCards[i]);
@@ -121,17 +122,24 @@ Board.prototype.hideCards = function (player) {
     for (var i = 0; i < isNot.length; i++) {
       $('#player_board #' + isNot[i].name + ' .back').show();
     }
+    if (this.finished(player)) {
+      console.log("Player, You win!!!!");
+    } else {
+      player.pcTurn();
+    }
   } else {
     for (var i = 0; i < isNot.length; i++) {
       $('#pc_board #' + isNot[i].name + ' .back').show();
     }
+    if (this.finished(player)) {
+      console.log("PC, You win!!!!");
+    }
   }
-  //---- cambiar de turno
 }
 
 // The end
-Board.prototype.finished = function () {
-  if (p.isNotArray.length == 23) {
+Board.prototype.finished = function (player) {
+  if (player.isNotArray.length >= 23) {
     return true;
   } else {
     return false;

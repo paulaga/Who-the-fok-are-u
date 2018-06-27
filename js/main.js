@@ -2,6 +2,7 @@ $(function() {
 
   $(".container").hide();
   $("#modal_chose").hide();
+  $("#pc_questions").hide();
 
   // PLAY
   $(".play").on("click", function (){
@@ -37,6 +38,11 @@ $(function() {
     console.log($(this).text());
     var pickedQ = $(this).text();
     boardGame.selectQuestion(pickedQ, Player1); 
+  });
+
+  $("#pc_questions button").on("click", function () {
+    boardGame.selectQuestion(PlayerPC.pcQuest, PlayerPC); 
+    $("#pc_questions").hide();
   });
   
 });

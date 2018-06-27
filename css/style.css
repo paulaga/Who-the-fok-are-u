@@ -68,7 +68,7 @@ body{
   text-align: center;
 }
 
-/** PC BOARD **/
+/** PC **/
 #pc_board{
   margin: 20px 0;
 }
@@ -77,4 +77,16 @@ body{
   max-width: 35px;
   max-height: 35px;
   margin: 0;
+}
+
+#pc_questions{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  background: rgba(0,0,0,.4);
+  color: #fff;
+  text-align: center;
+  padding: 45% 0;
 }
