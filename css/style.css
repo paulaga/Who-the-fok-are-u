@@ -37,10 +37,18 @@ body{
   border: 2px solid blue;
   margin: 5px;
   float: left;
+  background: none;
 }
-.back {
-  width: 100px;
+.back, .front {
   height: 100px; 
+}
+
+.back {
+  background: rgba(215, 30, 44, 0.4);
+}
+
+.card-opacity{
+  opacity: .6;
 }
 
 .selected_card, .pc_selected_card {

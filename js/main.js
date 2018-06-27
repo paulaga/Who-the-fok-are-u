@@ -1,6 +1,5 @@
 $(function() {
 
-
   $(".container").hide();
   $(".modal").hide();
 
@@ -9,12 +8,13 @@ $(function() {
     $(this).hide();
     $(".container").show();
     $(".modal").show();
+    $(".back").hide();
   });
 
   var boardGame = new Board();
   boardGame.create();
   var Player1 = new Player(boardGame);
-  //var Player2 = new Player();
+  //var PlayerPC = new Player(boardGame);
 
   /* 1. Boton para elegir personaje */
   $(".modal").on("click", function() {
@@ -26,14 +26,9 @@ $(function() {
   $(".card").on("click", function() {
     var character = $(this).attr("id");
     console.log(character);
-    Player1.selectCard(character, boardGame.cards);
-
-    //var cards = document.getElementsByClassName("card");
-    //for (var i = 0; i < cards.length; i++) {
-    //  cards[i].disabled = true;
-    //}
-    /* draw selected card on player card */
-    /* call question turn */
+    if (!Player1.characterSelected) {
+      Player1.selectCard(character, boardGame.cards);
+    }
   });
 
   // 3. Seleccionar pregunta
