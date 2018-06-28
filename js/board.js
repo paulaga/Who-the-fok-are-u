@@ -4,8 +4,13 @@ function Board () {
   this.characterComputer;
   this.pickedquestIndex;
   this.questions = questions;
+
+  this.gameAudio = new Audio();
+  this.gameAudio.src = "src/click_sound_4.mp3";
 }
 
+
+//this.gameAudio.loop = true; // No se si se puede quitar
 
 
 // Barajar
@@ -102,8 +107,7 @@ Board.prototype.compareAnswer = function (allCards, selectedCards) {
 
 // Oculta img de personajes
 Board.prototype.hideCards = function (player) {
-  console.log('hideCards')
-  console.log(player);
+  this.gameAudio.play();
   var isNot = player.isNotArray;
   if (!player.pc) {
     for (var i = 0; i < isNot.length; i++) {

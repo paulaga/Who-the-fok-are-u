@@ -1,8 +1,38 @@
 body{
   margin: 0;
   padding: 0;
+  font-family: 'Rubik', sans-serif;
   font-size: 18px;
   background: pink;
+}
+
+h1{
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3em;
+  text-transform: uppercase;
+  color: #FFF;
+  margin: 76px 0 30px 0;
+  line-height: 1.5em;
+}
+
+h2, h3{
+  font-family: 'Bungee', cursive;
+  letter-spacing: .1em;
+}
+h2{
+  margin-bottom: 30px;
+}
+h3 {
+  font-size: 1.2em;
+}
+
+button{ 
+  width: 90px;
+}
+
+button:hover {
+  background: #0E6251;
+  color: #FFF;
 }
 
 /* spans */
@@ -16,17 +46,20 @@ body{
   color: #fff;
   text-align: center;
 }
+.play button {
+  width: 125px;
+}
 
 #modal_chose, #pc_questions{
   width: 100vw;
   height: 100vh;
   position: absolute;
   top: 0;
-  z-index: 10;
-  background: rgba(0,0,0,.6);
+  z-index: 1;
+  background: rgba(9, 19, 28, 0.8);
   color: #fff;
   text-align: center;
-  padding: 40vh 0;
+  padding: 35vh 0;
 }
 
 .container{
@@ -36,7 +69,7 @@ body{
 }
 
 #player_board {
-  max-width: 800px;
+  max-width: 769px;
   min-width: 720px;
 }
 
@@ -52,6 +85,11 @@ body{
   background: none;
 }
 
+.person.pointer .front:hover {
+  border-radius: 20px;
+}
+
+
 .back, .front {
   height: 100px; 
 }
@@ -59,10 +97,6 @@ body{
 .back {
   position: relative;
   background: rgba(24, 33, 117, .7);
-}
-
-.person-opacity{
-  opacity: .6;
 }
 
 .selected_card, .pc_selected_card {
@@ -74,14 +108,14 @@ body{
 /* Carousel */
 .carousel{
   height: 60px;
-  background: gray;
-  border: 1px solid greenyellow;
+  background: #fff;
+  /*border: 1px solid greenyellow;*/
   border-radius: 20px;
   text-align: center;
   width: 100%;
 }
 .carousel a{
-  background: red;
+  background: #148F77;
 }
 .carousel-control-prev {
   border-radius: 20px 0 0 20px;
@@ -93,11 +127,19 @@ body{
   margin-top: 13px;
 }
 
+.question:hover {
+  color: #148F77;
+}
+
 /** PC **/
 #pc_board{
   margin: 20px 0;
   min-width: 210px;
   max-width: 210px;
+}
+
+.pc_card h3{
+  margin-top: 30px;
 }
 
 #pc_board .person{
@@ -111,14 +153,6 @@ body{
   height: 35px;
 }
 
-#pc_questions{
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  z-index: 10;
-  background: rgba(0,0,0,.4);
-  color: #fff;
-  text-align: center;
-  padding: 45% 0;
+#pc_questions p{
+  font-size: 2em;
 }
