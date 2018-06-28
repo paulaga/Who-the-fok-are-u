@@ -5,7 +5,7 @@ function Player (board, pc) {
   this.remainCards = board.cards.slice();
   this.remainQuest = questions;
   this.doneQuests = [];
-  this.pcQuest;
+  this.quest;
 }
 
 // Select card
@@ -28,7 +28,8 @@ Player.prototype.selectCard = function (character, cards) {
 
 // Turno PC
 Player.prototype.pcTurn = function () {
-  this.pcQuest = this.remainQuest[Math.floor (Math.random() * this.remainQuest.length)];
-  $("#pc_questions p").text(this.pcQuest);
+  this.quest = this.remainQuest[Math.floor (Math.random() * this.remainQuest.length)];
+  $("#pc_questions p").text(this.quest);
   $("#pc_questions").show();
+  //console.log(this.quest);
 }

@@ -22,15 +22,16 @@ body{
   position: absolute;
   top: 0;
   z-index: 10;
-  background: rgba(0,0,0,.4);
+  background: rgba(0,0,0,.6);
   color: #fff;
   text-align: center;
-  padding: 45% 0;
+  padding: 40vh 0;
 }
 
 .container{
   display: flex; 
   justify-content: center;
+  margin-top: 100px;
 }
 
 #player_board {
@@ -71,8 +72,10 @@ body{
 
 .carousel{
   height: 60px;
+  background: gray;
   border: 1px solid greenyellow;
   text-align: center;
+  width: 100%;
 }
 
 /** PC **/

@@ -42,8 +42,10 @@ $(function() {
 
   // Responder pregunta de PC
   $("#pc_questions button").on("click", function () {
-    boardGame.selectQuestion(PlayerPC.pcQuest, PlayerPC); 
+    PlayerPC.pcTurn();
+    boardGame.selectQuestion(PlayerPC.quest, PlayerPC); 
     $("#pc_questions").hide();
+    console.log(PlayerPC.quest)
   });
   
 });

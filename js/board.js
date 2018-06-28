@@ -50,7 +50,7 @@ Board.prototype.create = function() {
 
 // Ejecuta questions
 //1. Busca nº de pregunta en el array questions
-Board.prototype.selectQuestion = function (q, p) {
+Board.prototype.selectQuestion = function (q, player) {
  for (var i = 0; i < this.questions.length; i++) {
    if (this.questions[i] == q) {
      this.pickedquestIndex = i;
@@ -58,7 +58,7 @@ Board.prototype.selectQuestion = function (q, p) {
  }
  var picked = this.pickedquestIndex;
 
- this.pickedCheck(p, picked)
+ this.pickedCheck(player, picked)
 }
 
 //2. Compara si el nº está en characterSelected.answer 
@@ -109,6 +109,7 @@ Board.prototype.compareAnswer = function (allCards, selectedCards) {
 
 // Oculta img de personajes
 Board.prototype.hideCards = function (player) {
+  console.log('hideCards')
   console.log(player);
   var isNot = player.isNotArray;
   if (!player.pc) {
@@ -121,7 +122,6 @@ Board.prototype.hideCards = function (player) {
       player.pcTurn();
     }
   } else {
-    console.log(player);
     for (var i = 0; i < isNot.length; i++) {
       $('#pc_board #' + isNot[i].name + ' .back').show();
     }
