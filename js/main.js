@@ -25,7 +25,6 @@ $(function() {
 
   $(".person").on("click", function() {
     var character = $(this).attr("id");
-    console.log(character);
     if (!boardGame.characterSelected) {
       boardGame.Player1.selectCard(character, boardGame.cards);
       $(".person").removeClass("pointer");
@@ -36,17 +35,14 @@ $(function() {
   $(".question").on("click", function () {
     $(this).parent().remove();
     $(".carousel-item:first").addClass("active");
-    console.log($(this).text());
     var pickedQ = $(this).text();
     boardGame.selectQuestion(pickedQ, boardGame.Player1); 
   });
 
   // Responder pregunta de PC
   $("#pc_questions button").on("click", function () {
-    //PlayerPC.pcTurn();
     boardGame.selectQuestion(boardGame.PlayerPC.quest, boardGame.PlayerPC); 
     $("#pc_questions").hide();
-    console.log(boardGame.PlayerPC.quest)
   });
   
 });
