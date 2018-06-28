@@ -4,7 +4,7 @@ function Player (board, pc) {
   this.isNotArray = [];
   this.remainCards = board.cards.slice();
   this.remainQuest = questions;
-  this.doneQuests = [];
+  this.doneQuest = [];
   this.quest;
 }
 
@@ -31,5 +31,17 @@ Player.prototype.pcTurn = function () {
   this.quest = this.remainQuest[Math.floor (Math.random() * this.remainQuest.length)];
   $("#pc_questions p").text(this.quest);
   $("#pc_questions").show();
-  //console.log(this.quest);
+  
+  this.doneQuest.push(this.quest);
+  this.remainQuest = this.compareQuests(this.remainQuest, this.doneQuest);  
+
+  console.log(this.remainQuest);
+}
+
+Player.prototype.compareQuests = function (allQuests, selectedQuests) {
+  return allQuests.filter(function (allC) {
+    return !selectedQuests.find(function (selC) {
+      return allC === selC;
+    });
+ });
 }

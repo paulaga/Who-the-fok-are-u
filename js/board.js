@@ -66,7 +66,7 @@ Board.prototype.selectQuestion = function (q, player) {
  this.pickedCheck(player, picked)
 }
 
-//2. Compara si el nº está en characterSelected.answer 
+//2. Compara si el nº está en character.answer 
 //   compara con el resto de cards y guarda en isNotArray
 Board.prototype.pickedCheck = function (player, picked) {
   var character = this.characterSelected;
