@@ -6,6 +6,8 @@ function Board () {
   this.questions = questions;
 }
 
+
+
 // Barajar
 Board.prototype.shuffleCards = function () {
   var copy = [], n = this.cards.length, i;
@@ -22,6 +24,9 @@ Board.prototype.shuffleCards = function () {
 }
 
 Board.prototype.create = function() {
+
+  this.Player1 = new Player(this, false);
+  this.PlayerPC = new Player(this, true);
 
   this.shuffleCards();
   
@@ -119,7 +124,7 @@ Board.prototype.hideCards = function (player) {
     if (this.finished(player)) {
       console.log("Player, You win!!!!");
     } else {
-      player.pcTurn();
+      this.PlayerPC.pcTurn();
     }
   } else {
     for (var i = 0; i < isNot.length; i++) {

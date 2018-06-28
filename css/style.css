@@ -1,6 +1,7 @@
 body{
   margin: 0;
   padding: 0;
+  font-size: 18px;
   background: pink;
 }
 
@@ -70,12 +71,26 @@ body{
   height: 100px;
 }
 
+/* Carousel */
 .carousel{
   height: 60px;
   background: gray;
   border: 1px solid greenyellow;
+  border-radius: 20px;
   text-align: center;
   width: 100%;
+}
+.carousel a{
+  background: red;
+}
+.carousel-control-prev {
+  border-radius: 20px 0 0 20px;
+}
+.carousel-control-next {
+  border-radius: 0 20px 20px 0;
+}
+.question {
+  margin-top: 13px;
 }
 
 /** PC **/

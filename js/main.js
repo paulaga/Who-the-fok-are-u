@@ -14,8 +14,6 @@ $(function() {
 
   var boardGame = new Board();
   boardGame.create();
-  var Player1 = new Player(boardGame, false);
-  var PlayerPC = new Player(boardGame, true);
 
   // Elegir personaje
   $("#modal_chose").on("click", function() {
@@ -25,8 +23,8 @@ $(function() {
   $(".person").on("click", function() {
     var character = $(this).attr("id");
     console.log(character);
-    if (!Player1.characterSelected) {
-      Player1.selectCard(character, boardGame.cards);
+    if (!boardGame.Player1.characterSelected) {
+      boardGame.Player1.selectCard(character, boardGame.cards);
       $(".person").removeClass("pointer");
     }
   });
@@ -37,15 +35,15 @@ $(function() {
     $(".carousel-item:first").addClass("active");
     console.log($(this).text());
     var pickedQ = $(this).text();
-    boardGame.selectQuestion(pickedQ, Player1); 
+    boardGame.selectQuestion(pickedQ, boardGame.Player1); 
   });
 
   // Responder pregunta de PC
   $("#pc_questions button").on("click", function () {
-    PlayerPC.pcTurn();
-    boardGame.selectQuestion(PlayerPC.quest, PlayerPC); 
+    //PlayerPC.pcTurn();
+    boardGame.selectQuestion(boardGame.PlayerPC.quest, boardGame.PlayerPC); 
     $("#pc_questions").hide();
-    console.log(PlayerPC.quest)
+    console.log(boardGame.PlayerPC.quest)
   });
   
 });
