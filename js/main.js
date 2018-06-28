@@ -1,13 +1,16 @@
 $(function() {
 
   $(".container").hide();
+  $("header").hide();
   $("#modal_chose").hide();
   $("#pc_questions").hide();
+  $("#win").hide();
 
   // PLAY
   $(".play").on("click", function (){
     $(this).hide();
     $(".container").show();
+    $("header").show();
     $("#modal_chose").show();
     $(".back").hide();
   });

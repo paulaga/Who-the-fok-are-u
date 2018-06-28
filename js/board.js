@@ -114,7 +114,8 @@ Board.prototype.hideCards = function (player) {
       $('#player_board #' + isNot[i].name + ' .back').show();
     }
     if (this.finished(player)) {
-      console.log("Player, You win!!!!");
+      $("#win h1").text("You win!!!!!");
+      $("#win").show();
     } else {
       this.PlayerPC.pcTurn();
     }
@@ -123,7 +124,8 @@ Board.prototype.hideCards = function (player) {
       $('#pc_board #' + isNot[i].name + ' .back').show();
     }
     if (this.finished(player)) {
-      console.log("PC, You win!!!!");
+      $("#win h1").text("PC win!!!!!");
+      $("#win").show();
     }
   }
 }
