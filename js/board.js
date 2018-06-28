@@ -69,36 +69,24 @@ Board.prototype.selectQuestion = function (q, player) {
 //2. Compara si el nº está en characterSelected.answer 
 //   compara con el resto de cards y guarda en isNotArray
 Board.prototype.pickedCheck = function (player, picked) {
+  var character = this.characterSelected;
   if (!player.pc) {
-    if (this.characterComputer.answer.includes(picked)) {
-      for (var i = 0; i < player.remainCards.length; i++) {
-        if (!(player.remainCards[i].answer.includes(picked))) {
-          player.isNotArray.push(player.remainCards[i]);
-        } 
-      }
-    } else {
-      for (var i = 0; i < player.remainCards.length; i++) {
-        if (player.remainCards[i].answer.includes(picked)) {
-          player.isNotArray.push(player.remainCards[i]);
-        }
-      }
-    } 
+    character = this.characterComputer;
+  } 
+  if (character.answer.includes(picked)) {
+    for (var i = 0; i < player.remainCards.length; i++) {
+      if (!(player.remainCards[i].answer.includes(picked))) {
+        player.isNotArray.push(player.remainCards[i]);
+      } 
+    }
   } else {
-    console.log(this.characterSelected)
-    if (this.characterSelected.answer.includes(picked)) {
-      for (var i = 0; i < player.remainCards.length; i++) {
-        if (!(player.remainCards[i].answer.includes(picked))) {
-          player.isNotArray.push(player.remainCards[i]);
-        } 
+    for (var i = 0; i < player.remainCards.length; i++) {
+      if (player.remainCards[i].answer.includes(picked)) {
+        player.isNotArray.push(player.remainCards[i]);
       }
-    } else {
-      for (var i = 0; i < player.remainCards.length; i++) {
-        if (player.remainCards[i].answer.includes(picked)) {
-          player.isNotArray.push(player.remainCards[i]);
-        }
-      }
-    } 
-  }
+    }
+  } 
+
   this.hideCards(player);
   player.remainCards = this.compareAnswer(player.remainCards, player.isNotArray);  
 }

@@ -23,7 +23,7 @@ $(function() {
   $(".person").on("click", function() {
     var character = $(this).attr("id");
     console.log(character);
-    if (!boardGame.Player1.characterSelected) {
+    if (!boardGame.characterSelected) {
       boardGame.Player1.selectCard(character, boardGame.cards);
       $(".person").removeClass("pointer");
     }
