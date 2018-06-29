@@ -58,7 +58,30 @@ button:hover {
   width: 125px;
 }
 
-#modal_chose, #pc_questions, #win{
+#modal_chose, #modal_quest, #pc_questions{
+  width: 50vw;
+  height: 50vh;
+  position: absolute;
+  top: 25vh;
+  left: 25vw;
+  z-index: 1;
+  background: rgba(9, 19, 28, 0.8);
+  border: 12px solid #17b89a;
+  color: #fff;
+  text-align: center;
+  padding-top: 74px;
+}
+
+#modal_quest{
+  height: 36vh;
+  top: 35vh;
+}
+
+.fa{
+  font-size: 3em;
+}
+
+#win{
   width: 100vw;
   height: 100vh;
   position: absolute;

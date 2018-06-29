@@ -5,6 +5,7 @@ $(function() {
   $("#modal_chose").hide();
   $("#pc_questions").hide();
   $("#win").hide();
+  $("#modal_quest").hide();
 
   // PLAY
   $(".play").on("click", function (){
@@ -29,6 +30,11 @@ $(function() {
       boardGame.Player1.selectCard(character, boardGame.cards);
       $(".person").removeClass("pointer");
     }
+  });
+
+  // Elegir pregunta
+  $("#modal_quest").on("click", function() {
+    $(this).hide();
   });
 
   // Seleccionar pregunta

@@ -24,6 +24,8 @@ Player.prototype.selectCard = function (character, cards) {
       $(".selected_card").css({background : url});
     }
   }
+
+  $("#modal_quest").show();
 };
 
 // Turno PC
