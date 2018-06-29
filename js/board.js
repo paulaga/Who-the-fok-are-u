@@ -120,7 +120,8 @@ Board.prototype.hideCards = function (player) {
       var that = this;
       setTimeout(function(){
         that.PlayerPC.pcTurn();
-      }, 1800)    }
+      }, 1500)
+    }
   } else {
     for (var i = 0; i < isNot.length; i++) {
       $('#pc_board #' + isNot[i].name + ' .back').show();
