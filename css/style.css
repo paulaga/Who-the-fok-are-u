@@ -46,17 +46,6 @@ button:hover {
 /* spans */
 .pointer{cursor: pointer;}
 
-.play{
-  width: 100%;
-  padding-top: 100px;
-  height: 100vh;
-  background: #000;
-  color: #fff;
-  text-align: center;
-}
-.play button {
-  width: 125px;
-}
 
 #modal_chose, #modal_quest, #pc_questions{
   width: 50vw;
@@ -193,4 +182,53 @@ button:hover {
 
 #pc_questions p{
   font-size: 1.5em;
+}
+
+/* ANIMACION PLAY */
+.play{
+  width: 100%;
+  padding-top: 100px;
+  height: 100vh;
+  background: url("../img/bg.png") repeat;
+  color: #fff;
+  text-align: center;
+}
+.play button {
+  width: 125px;
+}
+
+.play h1{ 
+  animation-name: fadeInWho;
+  animation-duration: 10s;
+}
+.play button{  
+  animation-name: fadeInPlay;
+  animation-duration: 20s;
+}
+
+@keyframes fadeInWho {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes fadeInPlay {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
 }

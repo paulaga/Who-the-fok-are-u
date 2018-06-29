@@ -11,6 +11,8 @@ $(function() {
   var playAudio = new Audio("src/play.mp3");
   playAudio.play();
 
+  var gameAudio = new Audio("src/game.mp3");
+
   // PLAY
   $(".play").on("click", function (){
     $(this).hide();
@@ -19,6 +21,8 @@ $(function() {
     $("#modal_chose").show();
     $(".back").hide();
     playAudio.pause();
+    gameAudio.play();;
+    gameAudio.loop = true;
   });
 
   var boardGame = new Board();
