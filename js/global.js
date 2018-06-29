@@ -1,6 +1,6 @@
 var cards = [
   { name: "gabi",   img:  "gabi.png",     answer: [1,11,15,16]},
-  { name: "susana", img:  "susana.png",   answer: [6,11,15]},
+  { name: "susana", img:  "susana.png",   answer: [5,6,11,15]},
   { name: "ismael", img:  "ismael.png",   answer: [3,14]},
   { name: "diego",  img:  "diego.png",    answer: [1,4,8]},
   { name: "ale",    img:  "ale.png",      answer: [5,13]},

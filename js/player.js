@@ -30,6 +30,9 @@ Player.prototype.selectCard = function (character, cards) {
 
 // Turno PC
 Player.prototype.pcTurn = function () {
+  //setTimeout(function(){
+  //  this.PlayerPC.pcTurn();
+  //}, 1000)
   this.quest = this.remainQuest[Math.floor (Math.random() * this.remainQuest.length)];
   $("#pc_questions p").text(this.quest);
   $("#pc_questions").show();

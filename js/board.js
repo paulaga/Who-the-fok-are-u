@@ -5,8 +5,8 @@ function Board () {
   this.pickedquestIndex;
   this.questions = questions;
 
-  this.gameAudio = new Audio();
-  this.gameAudio.src = "src/click_sound_4.mp3";
+  this.clickAudio = new Audio();
+  this.clickAudio.src = "src/click_sound_4.mp3";
 }
 
 
@@ -107,7 +107,7 @@ Board.prototype.compareAnswer = function (allCards, selectedCards) {
 
 // Oculta img de personajes
 Board.prototype.hideCards = function (player) {
-  this.gameAudio.play();
+  this.clickAudio.play();
   var isNot = player.isNotArray;
   if (!player.pc) {
     for (var i = 0; i < isNot.length; i++) {
@@ -117,8 +117,10 @@ Board.prototype.hideCards = function (player) {
       $("#win h1").text("You win!!!!!");
       $("#win").show();
     } else {
-      this.PlayerPC.pcTurn();
-    }
+      var that = this;
+      setTimeout(function(){
+        that.PlayerPC.pcTurn();
+      }, 1800)    }
   } else {
     for (var i = 0; i < isNot.length; i++) {
       $('#pc_board #' + isNot[i].name + ' .back').show();
