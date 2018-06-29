@@ -46,10 +46,14 @@ button:hover {
 /* spans */
 .pointer{cursor: pointer;}
 
+.hidden{
+  display: none;
+}
+
 
 #modal_chose, #modal_quest, #pc_questions{
-  width: 50vw;
-  height: 50vh;
+  width: 50%;
+  height: 50%;
   position: absolute;
   top: 25vh;
   left: 25vw;
@@ -182,6 +186,11 @@ button:hover {
 
 #pc_questions p{
   font-size: 1.5em;
+}
+
+.pc_selected{
+  width: 100px;
+  height: 120px;
 }
 
 /* ANIMACION PLAY */

@@ -114,20 +114,24 @@ Board.prototype.hideCards = function (player) {
       $('#player_board #' + isNot[i].name + ' .back').show();
     }
     if (this.finished(player)) {
+      $("#win h2").text("Es " + this.characterComputer.name);
       $("#win h1").text("You win!!!!!");
+      $(".pc_selected").removeClass("hidden");
+      $(".pc_selected_card").hide();
       $("#win").show();
     } else {
       var that = this;
       setTimeout(function(){
         that.PlayerPC.pcTurn();
-      }, 1500)
+      }, 1300)
     }
   } else {
     for (var i = 0; i < isNot.length; i++) {
       $('#pc_board #' + isNot[i].name + ' .back').show();
     }
     if (this.finished(player)) {
-      $("#win h1").text("PC win!!!!!");
+      $("#win h1").text("GAME OVER");
+      $("#win h2").text("La máquina gana");
       $("#win").show();
     }
   }

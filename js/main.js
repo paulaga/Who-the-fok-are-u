@@ -7,7 +7,6 @@ $(function() {
   $("#win").hide();
   $("#modal_quest").hide();
 
-
   var playAudio = new Audio("src/play.mp3");
   playAudio.play();
 
@@ -27,8 +26,6 @@ $(function() {
 
   var boardGame = new Board();
   boardGame.create();
-  //boardGame.playAudio.play();
-  //boardGame.playAudio.loop = true;
 
   // Elegir personaje
   $("#modal_chose").on("click", function() {
