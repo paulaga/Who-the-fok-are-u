@@ -18,7 +18,7 @@ var cards = [
   { name: "abel",  img:  "abel.png",   answer: [3,16]},
   { name: "marc",  img:  "marc.png",   answer: [12,15,16]},
   { name: "jesus", img:  "jesus.png",   answer: [1,4,16]},
-  { name: "miguel",     img:  "miguel.png",   answer: [2,4,10]},
+  { name: "miguel",     img:  "miguel.png",   answer: [2,4,9,10]},
   { name: "niko",  img:  "niko.png",   answer: [2,14]},
   { name: "laura",  img:  "laura.png",   answer: [7,13]},
   { name: "andres", img:  "andres.png",   answer: [10,16]},
