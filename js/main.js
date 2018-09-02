@@ -1,8 +1,5 @@
 $(function() {
 
-  $(".container").hide();
-  $("header").hide();
-  $("#modal_chose").hide();
   $("#pc_questions").hide();
   $("#win").hide();
   $("#modal_quest").hide();
@@ -10,22 +7,22 @@ $(function() {
   var playAudio = new Audio("src/play.mp3");
   playAudio.play();
 
-  var gameAudio = new Audio("src/game.mp3");
-
+  var gameAudio = new Audio("../src/game.mp3");
+  
   // PLAY
-  $(".play").on("click", function (){
-    $(this).hide();
-    $(".container").show();
-    $("header").show();
-    $("#modal_chose").show();
-    $(".back").hide();
+  $(".play-btn").on("click", function (){
     playAudio.pause();
-    gameAudio.play();;
-    gameAudio.loop = true;
   });
-
+  
   var boardGame = new Board();
   boardGame.create();
+  gameAudio.play();
+  gameAudio.loop = true;
+
+  $("#win").on("click", function (){
+    $(this).hide();
+    location.reload();
+  })
 
   // Elegir personaje
   $("#modal_chose").on("click", function() {
@@ -47,10 +44,14 @@ $(function() {
 
   // Seleccionar pregunta
   $(".question").on("click", function () {
-    $(this).parent().remove();
-    $(".carousel-item:first").addClass("active");
-    var pickedQ = $(this).text();
-    boardGame.selectQuestion(pickedQ, boardGame.Player1); 
+    if($(".pc_selected_card").css("background").includes('url')) {
+      $(this).parent().remove();
+      $(".carousel-item:first").addClass("active");
+      var pickedQ = $(this).text();
+      boardGame.selectQuestion(pickedQ, boardGame.Player1); 
+    } else {
+      $("#modal_chose").show();
+    }
   });
 
   // Responder pregunta de PC

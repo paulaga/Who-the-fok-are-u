@@ -15,72 +15,24 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
   <script src="js/global.js"></script>
   <script src="js/player.js"></script>
-  <script src="js/board.js"></script>
   <script src="js/main.js"></script>
+  <!-- <script src="js/board.js"></script> -->
 </head>
 <body>
   <!-- Primera pantalla -->
-  <div class="play">
+<div class="play">
     <h1>Who the<br>FO*OK<br>are you!?</h1>
-    <button class="btn btn-outline-info">PLAY</button>
-  </div>
-  <!-- Elige tu personaje -->
-  <div id="modal_chose">
-    <h2>Elige<br>personaje</h2>
-    <button id="btn" class="btn btn-lg btn_chose">OK</button>
-  </div>
-  <!-- Elige pregunta -->
-  <div id="modal_quest">
-    <h2>Elige una pregunta</h2>
-    <i class="fa fa-angle-down pointer"></i>
-  </div>
-    <!-- main -->
-  <header>
-    <h1>Who the FO*OK are you!?</h1>
-  </header>
-  <div class="container">
-    <div id="player_board">
+    <div class="rules">
+      <p>Este juego es una versión del <b>¿Quién es quién?</b><br>
+        Se trata de acertar el personaje que ha elegido tu oponentea (el PC) través de algunas preguntas referentes a su aspecto.
+        <br>¿Cómo se juega?</p>
+      <ol>
+        <li>1. Elige un personaje del tablero, que tu contrincante deberá adivinar. El PC también elegirá el suyo :-P</li>
+        <li>2. Elige las preguntas que vayan descartando posibles sospechosos. </li>
+        <li>3. Cada turno puedes hacer una única pregunta (puedes ver las posibles preguntas navegando con las flechas y elegir una pinchando sobre ella), después te tocará responder a la pregunta del PC.</li>
+      </ol>
     </div>
-    <div class="pc_board">
-      <div class="player_card">
-        <h3>Your card</h3>
-        <div class="selected_card"></div>
-      </div>
-      <div class="pc_card">
-        <h3>PC card</h3>
-        <div class="pc_selected_card"></div>
-        <div class="pc_selected hidden"></div>
-      </div>
-      <div id="pc_board">
-      </div> 
-    </div>  
-  </div>
-  <!-- questions -->
-  <div class="container">
-    <div id="carouselExampleControls" class="carousel slide" data-interval="false">
-      <div class="carousel-inner">
-    </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-  </div>
-  <!-- Turno de pc modal -->
-  <div id="pc_questions">
-    <h2>Turno del PC</h2>
-    <p></p>
-    <button class="btn btn-lg yes">Sí</button>
-    <button class="btn btn-lg no">No</button>
-  </div>
-  <!-- You win -->
-  <div id="win">
-    <h2></h2>
-    <h1></h1>
+    <a href="src/index.html" class="btn btn-outline-info play-btn">PLAY</a>
   </div>
 </body>
 </html>

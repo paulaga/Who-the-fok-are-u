@@ -35,23 +35,28 @@ h3 {
 }
 
 button{ 
-  width: 90px;
+  min-width: 136px;
 }
 
 button:hover {
-  background: #0E6251;
+  background: #51bb8f;
   color: #FFF;
 }
 
 /* spans */
-.pointer{cursor: pointer;}
+.pointer{
+  cursor: pointer;
+}
 
 .hidden{
   display: none;
 }
 
-
 #modal_chose, #modal_quest, #pc_questions{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 50%;
   height: 50%;
   position: absolute;
@@ -62,12 +67,39 @@ button:hover {
   border: 12px solid #17b89a;
   color: #fff;
   text-align: center;
-  padding-top: 74px;
 }
 
 #modal_quest{
   height: 36vh;
   top: 35vh;
+}
+#modal_quest .fa{
+  animation-name: arrow;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  position: relative;
+  bottom: 8px;
+}
+
+@-webkit-keyframes arrow {
+  0% { bottom: 8px; }
+  5% { bottom: 8.8px; }
+  10% { bottom: 9.6px; }
+  15% { bottom: 10.4px; }
+  20% { bottom: 11.2px; }
+  25% { bottom: 12px; }
+  30% { bottom: 12.8px; }
+  35% { bottom: 13.6px; }
+  40% { bottom: 14.4px; }
+  45% { bottom: 15.2px; }
+  50% { bottom: 16px; }
+}
+
+.buttons{
+  margin-top: 20px;
+}
+.buttons button{
+  margin: 5px;
 }
 
 .fa{
@@ -127,7 +159,7 @@ button:hover {
 }
 
 .selected_card, .pc_selected_card {
-  background: gray;
+  background: #808080;
   width: 100px;
   height: 120px;
 }
@@ -155,7 +187,7 @@ button:hover {
 }
 
 .question:hover {
-  color: #148F77;
+  color: #17b89a;
 }
 
 /** PC **/
@@ -196,8 +228,9 @@ button:hover {
 /* ANIMACION PLAY */
 .play{
   width: 100%;
-  padding-top: 100px;
-  height: 100vh;
+  padding: 50px 0;
+  min-height: 100vh;
+  height: 100%;
   background: url("../img/bg.png") repeat;
   color: #fff;
   text-align: center;
@@ -213,6 +246,23 @@ button:hover {
 .play button{  
   animation-name: fadeInPlay;
   animation-duration: 20s;
+}
+
+.rules{
+  font-family: 'Press Start 2P', cursive;
+  max-width: 700px;
+  margin: 0 auto 20px auto;
+  font-size: .4em;
+  line-height: 26px;
+  letter-spacing: 1px;
+  color: #a0a7a3;
+  animation-name: fadeInPlay;
+  animation-duration: 15s;
+}
+ol{
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 @keyframes fadeInWho {
@@ -239,5 +289,11 @@ button:hover {
 
   100% {
     opacity: 100%;
+  }
+}
+
+@media (max-width:930px){
+  body{
+    font-size: 20px;
   }
 }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Who the fok are you?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Bungee|Press+Start+2P" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+  <script src="../js/global.js"></script>
+  <script src="../js/player.js"></script>
+  <script src="../js/board.js"></script>
+  <script src="../js/main.js"></script>
+</head>
+<body>
+  <!-- Elige tu personaje -->
+  <div id="modal_chose">
+    <h2>Elige<br>personaje</h2>
+    <button id="btn" class="btn btn-lg btn_chose">OK</button>
+  </div>
+  <!-- Elige pregunta -->
+  <div id="modal_quest">
+    <h2>Elige una pregunta</h2>
+    <i class="fa fa-angle-down pointer"></i>
+  </div>
+  <!-- main -->
+  <header>
+    <h1>Who the FO*OK are you!?</h1>
+  </header>
+  <div class="container">
+    <div id="player_board">
+    </div>
+    <div class="pc_board">
+      <div class="player_card">
+        <h3>Your card</h3>
+        <div class="selected_card"></div>
+      </div>
+      <div class="pc_card">
+        <h3>PC card</h3>
+        <div class="pc_selected_card"></div>
+        <div class="pc_selected hidden"></div>
+      </div>
+      <div id="pc_board">
+      </div> 
+    </div>  
+  </div>
+  <!-- questions -->
+  <div class="container">
+    <div id="carouselExampleControls" class="carousel slide" data-interval="false">
+      <div class="carousel-inner">
+    </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  <!-- Turno de pc modal -->
+  <div id="pc_questions">
+    <h2>Turno del PC</h2>
+    <p></p>
+    <div class="buttons">
+      <button class="btn btn-lg yes">Sí</button>
+      <button class="btn btn-lg no">No</button>
+    </div>
+  </div>
+  <!-- You win -->
+  <div id="win">
+    <h2></h2>
+    <h1></h1>
+    <button class="btn btn-outline-info play-again">PLAY AGAIN</button>
+  </div>
+</body>
+</html>
